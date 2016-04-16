@@ -6,45 +6,7 @@ import TextField from 'material-ui/lib/text-field';
 
 import word from '../../lib/word';
 
-const styles = {
-	play: {
-		position: "relative",
-		maxWidth: "400px",
-		fontFamily: "Roboto"
-	},
-	score: {
-		position: "relative",
-		top: "-30px",
-		lineHeight: "30px",
-		height: "30px",
-		textAlign: "center",
-		backgroundColor: "rgba(0, 0, 0, 0.5)",
-		color: "white",
-		fontWeight: "lighter"
-	},
-	question: {
-		position: "absolute",
-		top: "0",
-		width: "100%",
-		textAlign: "center"
-	},
-	questionText: {
-		fontSize: "1.6em",
-		fontWeight: "lighter",
-		color: "white",
-		marginBottom: "15px"
-	},
-	overlay: {
-		position: "absolute",
-		top: "0",
-		width: "100%",
-		display: "block",
-	},
-	image: {
-		display: "block",
-		width: "100%"
-	}
-}
+import './play.scss';
 
 const speeds = [
 	{ text: "Very slow", value: 2500 },
@@ -163,22 +125,19 @@ export default class Options extends React.Component {
   render() {
 	  const speed = speeds.find(s => s.value === this.state.speed).text.toLowerCase();
 	  const wordLength = wordLengths.find(wl => wl.value === this.state.wordLength).text.toLowerCase();
-	  styles.question.display = this.state.finished ? "block" : "none";
-	  styles.overlay.opacity = this.state.finished ? "0.5" : "0";
-	  styles.questionText.marginTop = this.state.desktop ? "50px" : "15px";
     return (
-      <div style={styles.play}>
-	      <img style={styles.image} src={this.state.image} />
-	      <img style={styles.overlay} src="images/overlay.jpg" />
-	      <div style={styles.question}>
-		      <div style={styles.questionText}>What have I just fingerspelt?</div>
+      <div className={`play ${this.state.finished ? "finished" : ""}`}>
+	      <img className="image" src={this.state.image} />
+	      <img className="overlay" src="images/overlay.jpg" />
+	      <div className="question">
+		      <div className="questionText">What have I just fingerspelt?</div>
 		      <RaisedButton
 				      label="¯\_(ツ)_/¯ Repeat"
 				      secondary={true}
 				      onClick={this.again}
 		      />
 	      </div>
-	      <div style={styles.score}>
+	      <div className="score">
 		      Your score for {speed} {wordLength}-letter fingerspelling is <strong>{this.state.score}</strong>
 	      </div>
 	      <div>
