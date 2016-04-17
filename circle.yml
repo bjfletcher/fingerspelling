@@ -1,9 +1,0 @@
-machine:
-  node:
-    version: 5.10.0
-
-deployment:
-  production:
-    branch: master
-    commands:
-      - make deploy
