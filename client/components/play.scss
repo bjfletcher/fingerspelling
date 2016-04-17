@@ -2,52 +2,53 @@
 	position: relative;
 	max-width: 400px;
 	font-family: Roboto;
-}
 
-.score {
-	position: relative;
-	top: -30px;
-	line-height: 30px;
-	height: 30px;
-	text-align: center;
-	background-color: rgba(0, 0, 0, 0.5);
-	color: white;
-	font-weight: lighter
-}
+	.play__score {
+		position: relative;
+		top: -30px;
+		line-height: 30px;
+		height: 30px;
+		text-align: center;
+		background-color: rgba(0, 0, 0, 0.5);
+		color: white;
+		font-weight: lighter
+	}
 
-.question {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	text-align: center;
+	.play__question {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		text-align: center;
 
-	display: none;
-	.finished & {
+		display: none;
+		.play--finished & {
+			display: block;
+		}
+	}
+
+	.play__question-text {
+		font-size: 1.6em;
+		font-weight: lighter;
+		color: white;
+		margin-bottom: 15px;
+		margin-top: 50px;
+	}
+
+	.play__overlay {
+		position: absolute;
+		top: 0;
+		width: 100%;
 		display: block;
+
+		opacity: 0;
+		.play--finished & {
+			opacity: .5;
+		}
+	}
+
+	.play__image {
+		display: block;
+		width: 100%
 	}
 }
 
-.questionText {
-	font-size: 1.6em;
-	font-weight: lighter;
-	color: white;
-	margin-bottom: 15px;
-	margin-top: 50px;
-}
-
-.overlay {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	display: block;
-
-	opacity: 0;
-	.finished & {
-		opacity: .5;
-	}
-}
-
-.image {
-	display: block;
-	width: 100%
-}

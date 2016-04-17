@@ -115,18 +115,18 @@ export default class Options extends React.Component {
 	  const speed = speeds.find(s => s.value === this.state.speed).text.toLowerCase();
 	  const wordLength = wordLengths.find(wl => wl.value === this.state.wordLength).text.toLowerCase();
     return (
-      <div className={`play ${this.state.finished ? "finished" : ""}`}>
-	      <img className="image" src={this.state.image} />
-	      <img className="overlay" src="images/overlay.jpg" />
-	      <div className="question">
-		      <div className="questionText">What have I just fingerspelt?</div>
+      <div className={`play ${this.state.finished ? "play--finished" : ""}`}>
+	      <img className="play__image" src={this.state.image} />
+	      <img className="play__overlay" src="images/overlay.jpg" />
+	      <div className="play__question">
+		      <div className="play__question-text">What have I just fingerspelt?</div>
 		      <RaisedButton
 				      label="¯\_(ツ)_/¯ Repeat"
 				      secondary={true}
 				      onClick={this.again}
 		      />
 	      </div>
-	      <div className="score">
+	      <div className="play__score">
 		      Your score for {speed} {wordLength}-letter fingerspelling is <strong>{this.state.score}</strong>
 	      </div>
 	      <div>
