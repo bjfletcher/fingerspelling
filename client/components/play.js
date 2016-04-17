@@ -54,18 +54,7 @@ export default class Options extends React.Component {
   }
 
 	componentWillMount() {
-		const mql = window.matchMedia(`(min-width: 400px)`);
-		mql.addListener(this.mediaQueryChanged);
-		this.setState({mql: mql, desktop: mql.matches});
 		this.spell(this.state.word);
-	}
-
-	componentWillUnmount() {
-		this.state.mql.removeListener(this.mediaQueryChanged);
-	}
-
-	mediaQueryChanged() {
-		this.setState({desktop: this.state.mql.matches});
 	}
 
 	spell(word) {
